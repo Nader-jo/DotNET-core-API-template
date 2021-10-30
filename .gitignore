@@ -2,5 +2,5 @@
 .vs\*
 .idea\*
 *\.obj
-ApiTemplate\obj
-ApiTemplate.Api\obj
+ApiTemplate\obj\*
+ApiTemplate.Api\obj\*
