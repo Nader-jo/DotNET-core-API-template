@@ -397,3 +397,15 @@ FodyWeavers.xsd
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+.vscode/launch.json
+.vscode/tasks.json
+ApiTemplate/bin/Debug/net5.0/ApiTemplate.dll
+ApiTemplate/bin/Debug/net5.0/ApiTemplate.dll
+ApiTemplate/bin/Debug/net5.0/ApiTemplate.dll
+ApiTemplate/bin/Debug/net5.0/ApiTemplate.pdb
+ApiTemplate.Api/bin/Debug/net5.0/ApiTemplate.Api.dll
+ApiTemplate.Api/bin/Debug/net5.0/ApiTemplate.Api.exe
+ApiTemplate.Api/bin/Debug/net5.0/ApiTemplate.Api.pdb
+ApiTemplate.Api/bin/Debug/net5.0/ApiTemplate.dll
+ApiTemplate.Api/bin/Debug/net5.0/ApiTemplate.pdb
