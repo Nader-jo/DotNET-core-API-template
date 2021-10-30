@@ -1,0 +1,6 @@
+#ignored files
+.vs\*
+.idea\*
+*\.obj
+ApiTemplate\obj
+ApiTemplate.Api\obj
