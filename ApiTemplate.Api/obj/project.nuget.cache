@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CHL2RhQdnw1sn7sNKsl0obkN3AzvTHxev7/O+kqJTYgNu7HEH7m33jCkMlzxq1AsiSf5fdkBTi5SozAYB5eCQQ==",
+  "dgSpecHash": "OVKtEDoLAiT1wzHLBe387r0R11jDkaDxg2uDDo8CrGmJ7JCguy2fe6hujxxrVIwAmHLuAgxnwJXDqyp7m8wg4w==",
   "success": true,
-  "projectFilePath": "D:\\projects\\ApiTemplate\\ApiTemplate.Api\\ApiTemplate.Api.csproj",
+  "projectFilePath": "C:\\Users\\Pro\\Documents\\GitHub\\.NET-core-API-template\\ApiTemplate.Api\\ApiTemplate.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Pro\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Pro\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

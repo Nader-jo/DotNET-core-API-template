@@ -1230,11 +1230,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\projects\\ApiTemplate\\ApiTemplate.Api\\ApiTemplate.Api.csproj",
+      "projectUniqueName": "C:\\Users\\Pro\\Documents\\GitHub\\.NET-core-API-template\\ApiTemplate.Api\\ApiTemplate.Api.csproj",
       "projectName": "ApiTemplate.Api",
-      "projectPath": "D:\\projects\\ApiTemplate\\ApiTemplate.Api\\ApiTemplate.Api.csproj",
+      "projectPath": "C:\\Users\\Pro\\Documents\\GitHub\\.NET-core-API-template\\ApiTemplate.Api\\ApiTemplate.Api.csproj",
       "packagesPath": "C:\\Users\\Pro\\.nuget\\packages\\",
-      "outputPath": "D:\\projects\\ApiTemplate\\ApiTemplate.Api\\obj\\",
+      "outputPath": "C:\\Users\\Pro\\Documents\\GitHub\\.NET-core-API-template\\ApiTemplate.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Pro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1251,8 +1251,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\projects\\ApiTemplate\\ApiTemplate\\ApiTemplate.csproj": {
-              "projectPath": "D:\\projects\\ApiTemplate\\ApiTemplate\\ApiTemplate.csproj"
+            "C:\\Users\\Pro\\Documents\\GitHub\\.NET-core-API-template\\ApiTemplate\\ApiTemplate.csproj": {
+              "projectPath": "C:\\Users\\Pro\\Documents\\GitHub\\.NET-core-API-template\\ApiTemplate\\ApiTemplate.csproj"
             }
           }
         }

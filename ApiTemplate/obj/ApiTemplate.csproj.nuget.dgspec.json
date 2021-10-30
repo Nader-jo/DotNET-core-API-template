@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\projects\\ApiTemplate\\ApiTemplate\\ApiTemplate.csproj": {}
+    "C:\\Users\\Pro\\Documents\\GitHub\\.NET-core-API-template\\ApiTemplate\\ApiTemplate.csproj": {}
   },
   "projects": {
-    "D:\\projects\\ApiTemplate\\ApiTemplate\\ApiTemplate.csproj": {
+    "C:\\Users\\Pro\\Documents\\GitHub\\.NET-core-API-template\\ApiTemplate\\ApiTemplate.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\projects\\ApiTemplate\\ApiTemplate\\ApiTemplate.csproj",
+        "projectUniqueName": "C:\\Users\\Pro\\Documents\\GitHub\\.NET-core-API-template\\ApiTemplate\\ApiTemplate.csproj",
         "projectName": "ApiTemplate",
-        "projectPath": "D:\\projects\\ApiTemplate\\ApiTemplate\\ApiTemplate.csproj",
+        "projectPath": "C:\\Users\\Pro\\Documents\\GitHub\\.NET-core-API-template\\ApiTemplate\\ApiTemplate.csproj",
         "packagesPath": "C:\\Users\\Pro\\.nuget\\packages\\",
-        "outputPath": "D:\\projects\\ApiTemplate\\ApiTemplate\\obj\\",
+        "outputPath": "C:\\Users\\Pro\\Documents\\GitHub\\.NET-core-API-template\\ApiTemplate\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Pro\\AppData\\Roaming\\NuGet\\NuGet.Config",
