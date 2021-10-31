@@ -1,5 +1,4 @@
 using System;
-using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using ApiTemplate.Domain.Models;
@@ -32,10 +31,13 @@ namespace ApiTemplate.Application.Commands
             public async Task<Guid> Handle(AddUserCommand command, CancellationToken cancellationToken)
             {
                 var (name, email, role) = command;
-                var userDB = await _userRepository.GetByEmail(email);
-                if (userDB != null) {
-                    return await Task.FromException<Guid>(exception: new Exception("Email address already used with another user."));
+                var userDb = await _userRepository.GetByEmail(email);
+                if (userDb != null)
+                {
+                    return await Task.FromException<Guid>(
+                        exception: new Exception("Email address already used with another user."));
                 }
+
                 var user = new User(name, email, role);
                 await _userRepository.Add(user);
                 return await Task.FromResult(user.Id);
