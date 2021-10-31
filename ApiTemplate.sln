@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTemplate.Api", "Api/ApiT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTemplate", "Api/ApiTemplate\ApiTemplate.csproj", "{4A0287E1-61F5-45CD-BAA2-AC3D793A50D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTemplate.Test", "Api\Tests\ApiTemplate.Test\ApiTemplate.Test.csproj", "{FBB278B4-EDDB-42BA-A03E-4D940C3F5F12}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6CE851ED-CBFE-433C-A9A7-93E4FDA4757C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,11 +25,18 @@ Global
 		{4A0287E1-61F5-45CD-BAA2-AC3D793A50D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A0287E1-61F5-45CD-BAA2-AC3D793A50D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A0287E1-61F5-45CD-BAA2-AC3D793A50D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBB278B4-EDDB-42BA-A03E-4D940C3F5F12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBB278B4-EDDB-42BA-A03E-4D940C3F5F12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBB278B4-EDDB-42BA-A03E-4D940C3F5F12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBB278B4-EDDB-42BA-A03E-4D940C3F5F12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3160964A-B082-4CF5-8B2E-2E198A0CFF4C}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FBB278B4-EDDB-42BA-A03E-4D940C3F5F12} = {6CE851ED-CBFE-433C-A9A7-93E4FDA4757C}
 	EndGlobalSection
 EndGlobal
