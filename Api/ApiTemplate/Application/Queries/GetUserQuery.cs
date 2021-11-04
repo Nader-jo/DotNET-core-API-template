@@ -17,24 +17,24 @@ namespace ApiTemplate.Application.Queries
         {
             RuleFor(r => r.UserId).NotEmpty().WithMessage("UserId is empty");
         }
+    }
 
-        public class GetUserQueryHandler : IRequestHandler<GetUserQuery, UserDto>
+    public class GetUserQueryHandler : IRequestHandler<GetUserQuery, UserDto>
+    {
+        private readonly IUserRepository _userRepository;
+        private readonly IMapper _mapper;
+
+        public GetUserQueryHandler(IUserRepository userRepository, IMapper mapper)
         {
-            private readonly IUserRepository _userRepository;
-            private readonly IMapper _mapper;
+            _userRepository = userRepository;
+            _mapper = mapper;
+        }
 
-            public GetUserQueryHandler(IUserRepository userRepository, IMapper mapper)
-            {
-                _userRepository = userRepository;
-                _mapper = mapper;
-            }
-
-            public async Task<UserDto> Handle(GetUserQuery command, CancellationToken cancellationToken)
-            {
-                var user = await _userRepository.Get(command.UserId);
-                var usersDto = _mapper.Map<UserDto>(user);
-                return await Task.FromResult(usersDto);
-            }
+        public async Task<UserDto> Handle(GetUserQuery command, CancellationToken cancellationToken)
+        {
+            var user = await _userRepository.Get(command.UserId);
+            var usersDto = _mapper.Map<UserDto>(user);
+            return await Task.FromResult(usersDto);
         }
     }
 }

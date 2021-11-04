@@ -17,25 +17,27 @@ namespace ApiTemplate.Application.Commands
         {
             RuleFor(r => r.Name).NotEmpty().WithMessage("Name is empty");
             RuleFor(r => r.Email).NotEmpty().WithMessage("Email is empty");
+            RuleFor(r => r.Email).EmailAddress().WithMessage("Email is wrong");
             RuleFor(r => r.Role).NotEmpty().WithMessage("Role is empty");
+            RuleFor(r => r.Role).Must(role => role == UserRole.Owner || role == UserRole.User)
+                .WithMessage("Role is wrong");
         }
+    }
 
-        public class AddUserCommandHandler : IRequestHandler<AddUserCommand, Guid>
+    public class AddUserCommandHandler : IRequestHandler<AddUserCommand, Guid>
+    {
+        private readonly IUserRepository _userRepository;
+
+        public AddUserCommandHandler(IUserRepository userRepository) => _userRepository = userRepository;
+
+        public async Task<Guid> Handle(AddUserCommand command, CancellationToken cancellationToken)
         {
-            private readonly IUserRepository _userRepository;
-
-            public AddUserCommandHandler(IUserRepository userRepository) => _userRepository = userRepository;
-
-            public async Task<Guid> Handle(AddUserCommand command, CancellationToken cancellationToken)
-            {
-                var (name, email, role) = command;
-                var userDb = await _userRepository.GetByEmail(email);
-                if (userDb != null) return await ThrowError("Email address already used with another user.");
-                var user = new User(name, email, role);
-                await _userRepository.Add(user);
-                return await Task.FromResult(user.Id);
-
-            }
+            var (name, email, role) = command;
+            var userDb = await _userRepository.GetByEmail(email);
+            if (userDb != null) return await ThrowError("Email address already used with another user.");
+            var user = new User(name, email, role);
+            await _userRepository.Add(user);
+            return await Task.FromResult(user.Id);
         }
     }
 }

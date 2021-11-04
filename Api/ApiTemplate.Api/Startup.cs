@@ -1,8 +1,11 @@
 using System.Reflection;
+using System.Reflection.Metadata;
 using ApiTemplate.Api.Repositories;
 using ApiTemplate.Application.Queries;
 using ApiTemplate.Contract;
 using ApiTemplate.Domain.Repository;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -40,7 +43,8 @@ namespace ApiTemplate.Api
             services.AddMediatR(typeof(GetAllUsersQuery).GetTypeInfo().Assembly);
             services.AddMediatR(typeof(GetUserQuery).GetTypeInfo().Assembly);
             services.AddOptions();
-
+            services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Startup>());
+            services.AddValidatorsFromAssembly(typeof(AssemblyReference).Assembly);
 
             services.AddLogging();
 

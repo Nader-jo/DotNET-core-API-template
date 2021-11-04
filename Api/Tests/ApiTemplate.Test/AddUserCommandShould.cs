@@ -2,24 +2,22 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using ApiTemplate.Application.Commands;
-using ApiTemplate.Contract;
 using ApiTemplate.Domain.Models;
 using ApiTemplate.Domain.Repository;
 using Moq;
 using Xunit;
-using static ApiTemplate.Contract.Errors;
 
 namespace ApiTemplate.Test
 {
     public class AddUserCommandShould
     {
-        private readonly AddUserCommandValidator.AddUserCommandHandler _handler;
+        private readonly AddUserCommandHandler _handler;
         private readonly Mock<IUserRepository> _userRepository;
 
         public AddUserCommandShould()
         {
             _userRepository = new Mock<IUserRepository>(MockBehavior.Strict);
-            _handler = new AddUserCommandValidator.AddUserCommandHandler(_userRepository.Object);
+            _handler = new AddUserCommandHandler(_userRepository.Object);
         }
         
         [Fact]
@@ -39,7 +37,7 @@ namespace ApiTemplate.Test
             Assert.IsType<Guid>(result);
             _userRepository.Verify();
         }
-        /*
+        
         [Fact]
         public async void AddUserWhenEmailIsUsed()
         {
@@ -55,6 +53,6 @@ namespace ApiTemplate.Test
 
             Assert.Contains("Email address already used with another user.", ex.Message);
             _userRepository.Verify();
-        }*/
+        }
     }
 }

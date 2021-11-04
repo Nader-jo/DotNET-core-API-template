@@ -16,21 +16,20 @@ namespace ApiTemplate.Application.Commands
         {
             RuleFor(r => r.Id).NotEmpty().WithMessage("Id is empty");
         }
+    }
 
-        public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, Guid>
+    public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, Guid>
+    {
+        private readonly IUserRepository _userRepository;
+
+        public DeleteUserCommandHandler(IUserRepository userRepository) => _userRepository = userRepository;
+
+        public async Task<Guid> Handle(DeleteUserCommand command, CancellationToken cancellationToken)
         {
-            private readonly IUserRepository _userRepository;
-
-            public DeleteUserCommandHandler(IUserRepository userRepository) => _userRepository = userRepository;
-
-            public async Task<Guid> Handle(DeleteUserCommand command, CancellationToken cancellationToken)
-            {
-                var user = await _userRepository.Get(command.Id);
-                if (user == null) return await ThrowError("No user with the provided user Id is found.");
-                await _userRepository.Delete(user);
-                return command.Id;
-
-            }
+            var user = await _userRepository.Get(command.Id);
+            if (user == null) return await ThrowError("No user with the provided user Id is found.");
+            await _userRepository.Delete(user);
+            return command.Id;
         }
     }
 }
