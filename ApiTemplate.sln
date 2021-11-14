@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiTemplate.Test", "Api\Tes
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6CE851ED-CBFE-433C-A9A7-93E4FDA4757C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTemplate.Infrastructure", "ConsoleApp1\ApiTemplate.Infrastructure.csproj", "{0F63635C-8815-470A-AAA1-B2663C1E9ABE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTemplate.Infrastructure", "Api\ApiTemplate.Infrastructure\ApiTemplate.Infrastructure.csproj", "{0F63635C-8815-470A-AAA1-B2663C1E9ABE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

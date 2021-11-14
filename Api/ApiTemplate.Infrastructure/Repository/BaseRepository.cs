@@ -68,7 +68,11 @@ namespace ApiTemplate.Infrastructure.Repository
             await _context.SaveChangesAsync();
         }
 
-        public async Task AddRange(IEnumerable<T> entities) => await _context.Set<T>().AddRangeAsync(entities);
+        public async Task AddRange(IEnumerable<T> entities)
+        {
+            await _context.Set<T>().AddRangeAsync(entities);
+            await _context.SaveChangesAsync();
+        }
 
         public void Update(T entity)
         {
@@ -79,25 +83,25 @@ namespace ApiTemplate.Infrastructure.Repository
         public void Delete(T entity)
         {
             _context.Set<T>().Remove(entity);
-            _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
         public void DeleteRange(IEnumerable<T> entities)
         {
             _context.Set<T>().RemoveRange(entities);
-            _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
         public void Attach(T entity)
         {
             _context.Set<T>().Attach(entity);
-            _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
         public void AttachRange(IEnumerable<T> entities)
         {
             _context.Set<T>().AttachRange(entities);
-            _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
         public async Task<int> Count() => await _context.Set<T>().CountAsync();
