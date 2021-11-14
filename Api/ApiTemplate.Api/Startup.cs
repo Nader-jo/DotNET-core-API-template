@@ -1,9 +1,13 @@
 using System.Reflection;
 using System.Reflection.Metadata;
 using ApiTemplate.Application.Queries;
+using ApiTemplate.Common;
+using ApiTemplate.Common.Interfaces;
 using ApiTemplate.Contract;
+using ApiTemplate.Domain.Models;
 using ApiTemplate.Domain.Repository;
-using ApiTemplate.Infrastructure.Repositories;
+using ApiTemplate.Infrastructure;
+using ApiTemplate.Infrastructure.Repository;
 using ApiTemplate.Services;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -30,16 +34,14 @@ namespace ApiTemplate.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
             services.AddDbContext<ApiTemplateDbContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddAutoMapper(typeof(Startup));
-
-            services.AddControllers();
+            
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
             services.AddAutoMapper(typeof(MappingProfile));
-            services.AddScoped<IUserService, UserService>();
-
+            //services.AddScoped<IUserService, UserService>();
+            
             services.AddMediatR(typeof(Startup));
             services.AddMediatR(typeof(GetAllUsersQuery).GetTypeInfo().Assembly);
             services.AddMediatR(typeof(GetUserQuery).GetTypeInfo().Assembly);

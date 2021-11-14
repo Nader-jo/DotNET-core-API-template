@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using ApiTemplate.Contract;
 using ApiTemplate.Domain.Models;
 using ApiTemplate.Domain.Repository;
 
@@ -18,6 +17,6 @@ namespace ApiTemplate.Services
 
         public async Task<User> Get(Guid userId) => await _userRepository.Get(userId);
 
-        public async Task<List<User>> GetAll() => await _userRepository.GetAll();
+        public async Task<List<User>> GetAll() => await _userRepository.List() as List<User>;
     }
 }

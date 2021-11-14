@@ -23,7 +23,7 @@ namespace ApiTemplate.Application.Queries
 
         public async Task<List<UserDto>> Handle(GetAllUsersQuery command, CancellationToken cancellationToken)
         {
-            var users = await _userRepository.GetAll();
+            var users = await _userRepository.List();
             var usersDto = _mapper.Map<List<UserDto>>(users);
             return await Task.FromResult(usersDto);
         }

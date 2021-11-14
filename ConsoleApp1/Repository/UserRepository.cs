@@ -1,41 +1,23 @@
-using System;
-using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using ApiTemplate.Domain.Models;
 using ApiTemplate.Domain.Repository;
+using ApiTemplate.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
-using ApiTemplateDbContext = ApiTemplate.Infrastructure.Database.ApiTemplateDbContext;
 
-namespace ApiTemplate.Infrastructure.Repositories
+namespace ApiTemplate.Infrastructure.Repository
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : BaseRepository<User>, IUserRepository
     {
         private readonly ApiTemplateDbContext _context;
 
-        public UserRepository(ApiTemplateDbContext context)
+        public UserRepository(ApiTemplateDbContext context) : base(context)
         {
             _context = context;
         }
 
-        public async Task<User> Get(Guid userId) => await _context.Users.FirstOrDefaultAsync(m => m.Id == userId);
-
-        public async Task<List<User>> GetAll() => await _context.Users.ToListAsync();
-
-        public async Task Add(User user)
-        {
-            await _context.Users.AddAsync(user);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task Delete(User user)
-        {
-            _context.Users.Remove(user);
-            await _context.SaveChangesAsync();
-        }
-
-        public async void Update() => await _context.SaveChangesAsync();
-
         public async Task<User> GetByEmail(string email) =>
-            await _context.Users.FirstOrDefaultAsync(m => m.Email == email);
+            await _context.Set<User>().FirstOrDefaultAsync(m => m.Email == email);
+
     }
 }

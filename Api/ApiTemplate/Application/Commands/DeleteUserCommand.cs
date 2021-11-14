@@ -28,7 +28,7 @@ namespace ApiTemplate.Application.Commands
         {
             var user = await _userRepository.Get(command.Id);
             if (user == null) return await ThrowError("No user with the provided user Id is found.");
-            await _userRepository.Delete(user);
+            _userRepository.Delete(user);
             return command.Id;
         }
     }

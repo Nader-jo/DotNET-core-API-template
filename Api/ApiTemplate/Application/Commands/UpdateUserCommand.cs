@@ -33,7 +33,7 @@ namespace ApiTemplate.Application.Commands
             var user = await _userRepository.Get(id);
             if (user == null) return await ThrowError("No user with the provided user Id is found.");
             user.Update(name, email, role);
-            _userRepository.Update();
+            _userRepository.Update(user);
             return await Task.FromResult(user.Id);
         }
     }
