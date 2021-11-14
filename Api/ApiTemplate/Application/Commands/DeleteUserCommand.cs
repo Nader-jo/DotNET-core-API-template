@@ -26,6 +26,11 @@ namespace ApiTemplate.Application.Commands
 
         public async Task<Guid> Handle(DeleteUserCommand command, CancellationToken cancellationToken)
         {
+            var validator = new DeleteUserCommandValidator();
+            var validationResult = await validator.ValidateAsync(command, cancellationToken);
+            if (validationResult.Errors.Count > 0)
+                throw new ValidationException(validationResult.ToString());
+
             var user = await _userRepository.Get(command.Id);
             if (user == null) return await ThrowError("No user with the provided user Id is found.");
             _userRepository.Delete(user);

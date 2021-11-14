@@ -9,14 +9,9 @@ namespace ApiTemplate.Api.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
-    public class UserController : ControllerBase
+    public class UserController : ApiController
     {
         public record AddUserRequest(string Name, string Email, string Role);
-
-        private readonly IMediator _mediator;
-
-        public UserController(IMediator mediator) =>
-            _mediator = mediator;
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
@@ -25,7 +20,8 @@ namespace ApiTemplate.Api.Controllers
             {
                 return new BadRequestObjectResult(ModelState);
             }
-            return Ok(await _mediator.Send(new GetAllUsersQuery()));
+
+            return Ok(await Mediator.Send(new GetAllUsersQuery()));
         }
 
         [HttpGet("{userId:guid}")]
@@ -35,7 +31,8 @@ namespace ApiTemplate.Api.Controllers
             {
                 return new BadRequestObjectResult(ModelState);
             }
-            return Ok(await _mediator.Send(new GetUserQuery(userId)));
+
+            return Ok(await Mediator.Send(new GetUserQuery(userId)));
         }
 
         [HttpPost]
@@ -45,7 +42,8 @@ namespace ApiTemplate.Api.Controllers
             {
                 return new BadRequestObjectResult(ModelState);
             }
-            return Ok(await _mediator.Send(new AddUserCommand(request.Name, request.Email, request.Role)));
+
+            return Ok(await Mediator.Send(new AddUserCommand(request.Name, request.Email, request.Role)));
         }
 
         [HttpPut("{userId:guid}")]
@@ -55,7 +53,8 @@ namespace ApiTemplate.Api.Controllers
             {
                 return new BadRequestObjectResult(ModelState);
             }
-            return Ok(await _mediator.Send(new UpdateUserCommand(userId, request.Name, request.Email, request.Role)));
+
+            return Ok(await Mediator.Send(new UpdateUserCommand(userId, request.Name, request.Email, request.Role)));
         }
 
         [HttpDelete("{userId:guid}")]
@@ -65,7 +64,8 @@ namespace ApiTemplate.Api.Controllers
             {
                 return new BadRequestObjectResult(ModelState);
             }
-            return Ok(await _mediator.Send(new DeleteUserCommand(userId)));
+
+            return Ok(await Mediator.Send(new DeleteUserCommand(userId)));
         }
     }
 }

@@ -32,6 +32,11 @@ namespace ApiTemplate.Application.Queries
 
         public async Task<UserDto> Handle(GetUserQuery command, CancellationToken cancellationToken)
         {
+            var validator = new GetUserQueryValidator();
+            var validationResult = await validator.ValidateAsync(command, cancellationToken);
+            if (validationResult.Errors.Count > 0)
+                throw new ValidationException(validationResult.ToString());
+
             var user = await _userRepository.Get(command.UserId);
             var usersDto = _mapper.Map<UserDto>(user);
             return await Task.FromResult(usersDto);

@@ -29,6 +29,11 @@ namespace ApiTemplate.Application.Commands
 
         public async Task<Guid> Handle(UpdateUserCommand command, CancellationToken cancellationToken)
         {
+            var validator = new UpdateUserCommandValidator();
+            var validationResult = await validator.ValidateAsync(command, cancellationToken);
+            if (validationResult.Errors.Count > 0)
+                throw new ValidationException(validationResult.ToString());
+
             var (id, name, email, role) = command;
             var user = await _userRepository.Get(id);
             if (user == null) return await ThrowError("No user with the provided user Id is found.");
