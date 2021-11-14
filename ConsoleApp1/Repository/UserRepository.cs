@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 using ApiTemplate.Domain.Models;
 using ApiTemplate.Domain.Repository;
 using Microsoft.EntityFrameworkCore;
-using ApiTemplateDbContext = ApiTemplate.Api.Database.ApiTemplateDbContext;
+using ApiTemplateDbContext = ApiTemplate.Infrastructure.Database.ApiTemplateDbContext;
 
-namespace ApiTemplate.Api.Repositories
+namespace ApiTemplate.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {

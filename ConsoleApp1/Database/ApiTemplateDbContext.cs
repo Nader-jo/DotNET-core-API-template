@@ -1,7 +1,7 @@
 using ApiTemplate.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApiTemplate.Api.Database
+namespace ApiTemplate.Infrastructure.Database
 {
     public class ApiTemplateDbContext : DbContext
     {

@@ -2,7 +2,7 @@ using ApiTemplate.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ApiTemplate.Api.Database.Configuration
+namespace ApiTemplate.Infrastructure.Database.Configuration
 {
     internal class UsersConfiguration : IEntityTypeConfiguration<User>
     {

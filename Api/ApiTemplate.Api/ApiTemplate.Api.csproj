@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\ConsoleApp1\ApiTemplate.Infrastructure.csproj" />
     <ProjectReference Include="..\ApiTemplate\ApiTemplate.csproj" />
   </ItemGroup>
 

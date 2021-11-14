@@ -1,9 +1,10 @@
 using System.Reflection;
 using System.Reflection.Metadata;
-using ApiTemplate.Api.Repositories;
 using ApiTemplate.Application.Queries;
 using ApiTemplate.Contract;
 using ApiTemplate.Domain.Repository;
+using ApiTemplate.Infrastructure.Repositories;
+using ApiTemplate.Services;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using MediatR;
@@ -14,7 +15,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using ApiTemplateDbContext = ApiTemplate.Api.Database.ApiTemplateDbContext;
+using ApiTemplateDbContext = ApiTemplate.Infrastructure.Database.ApiTemplateDbContext;
 
 namespace ApiTemplate.Api
 {
@@ -37,7 +38,7 @@ namespace ApiTemplate.Api
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
             services.AddAutoMapper(typeof(MappingProfile));
-            //services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserService, UserService>();
 
             services.AddMediatR(typeof(Startup));
             services.AddMediatR(typeof(GetAllUsersQuery).GetTypeInfo().Assembly);

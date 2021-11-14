@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTemplate.Api", "Api/ApiTemplate.Api\ApiTemplate.Api.csproj", "{0B7969C0-1E83-4941-B974-914E61BEE53F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiTemplate.Api", "Api\ApiTemplate.Api\ApiTemplate.Api.csproj", "{0B7969C0-1E83-4941-B974-914E61BEE53F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTemplate", "Api/ApiTemplate\ApiTemplate.csproj", "{4A0287E1-61F5-45CD-BAA2-AC3D793A50D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiTemplate", "Api\ApiTemplate\ApiTemplate.csproj", "{4A0287E1-61F5-45CD-BAA2-AC3D793A50D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTemplate.Test", "Api\Tests\ApiTemplate.Test\ApiTemplate.Test.csproj", "{FBB278B4-EDDB-42BA-A03E-4D940C3F5F12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiTemplate.Test", "Api\Tests\ApiTemplate.Test\ApiTemplate.Test.csproj", "{FBB278B4-EDDB-42BA-A03E-4D940C3F5F12}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6CE851ED-CBFE-433C-A9A7-93E4FDA4757C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTemplate.Infrastructure", "ConsoleApp1\ApiTemplate.Infrastructure.csproj", "{0F63635C-8815-470A-AAA1-B2663C1E9ABE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,14 +31,18 @@ Global
 		{FBB278B4-EDDB-42BA-A03E-4D940C3F5F12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBB278B4-EDDB-42BA-A03E-4D940C3F5F12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBB278B4-EDDB-42BA-A03E-4D940C3F5F12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F63635C-8815-470A-AAA1-B2663C1E9ABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F63635C-8815-470A-AAA1-B2663C1E9ABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F63635C-8815-470A-AAA1-B2663C1E9ABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F63635C-8815-470A-AAA1-B2663C1E9ABE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3160964A-B082-4CF5-8B2E-2E198A0CFF4C}
-	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FBB278B4-EDDB-42BA-A03E-4D940C3F5F12} = {6CE851ED-CBFE-433C-A9A7-93E4FDA4757C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3160964A-B082-4CF5-8B2E-2E198A0CFF4C}
 	EndGlobalSection
 EndGlobal

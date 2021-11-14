@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using ApiTemplate.Domain.Models;
 
-namespace ApiTemplate.Contract
+namespace ApiTemplate.Services
 {
     public interface IUserService
     {
