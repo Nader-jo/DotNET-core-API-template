@@ -20,7 +20,7 @@ This project supports Docker containers
 
 Endpoints exposed on http://localhost:5000/
 
-available endpoints : 
+Available endpoints : 
 - GET       http://localhost:5000/api/v1/users
 - POST      http://localhost:5000/api/v1/users
 - GET       http://localhost:5000/api/v1/users/{userId}
@@ -29,5 +29,6 @@ available endpoints :
 
 TODO: 
 - Add JWT authentication 
-- Add caching support
-- TBD
+- Add caching support (redis)
+- Add BDDfy testing
+- TBD ...
