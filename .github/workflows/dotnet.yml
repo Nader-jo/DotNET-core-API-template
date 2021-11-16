@@ -20,6 +20,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore "ApiTemplate.sln"
     - name: Build
-      run: dotnet build --no-restore "ApiTemplate.Build.sln"
+      run: dotnet build --no-restore "ApiTemplate.sln"
     - name: Test
       run: dotnet test --no-build --verbosity normal "ApiTemplate.sln"
