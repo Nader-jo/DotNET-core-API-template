@@ -2,14 +2,13 @@
 using System.Threading.Tasks;
 using ApiTemplate.Application.Commands;
 using ApiTemplate.Application.Queries;
-using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiTemplate.Api.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
-    public class UserController : ApiController
+    public class UsersController : ApiController
     {
         public record AddUserRequest(string Name, string Email, string Role);
 

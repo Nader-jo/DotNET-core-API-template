@@ -1,0 +1,72 @@
+version: "3.5"
+
+networks:
+  apitemplate-net:
+    driver: bridge
+
+services:
+  api:
+    build:
+      context: ./
+    container_name: apitemplate-api
+    restart: on-failure
+    environment:
+      ASPNETCORE_ENVIRONMENT: Docker
+      ASPNETCORE_URLS: http://+:80
+    ports:
+      - 5000:80
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - apitemplate-net
+
+  postgres:
+    image: postgres:latest
+    container_name: apitemplate-postgres
+    ports:
+      - "5432:5432"
+    restart: on-failure
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+    networks:
+      - apitemplate-net
+    logging:
+      driver: "none"
+
+  redis:
+    image: "redis:alpine"
+    container_name: apitemplate-redis
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/var/lib/redis
+      - redis_conf:/usr/local/etc/redis/redis.conf
+    environment:
+      REDIS_REPLICATION_MODE: "master"
+    networks:
+      - apitemplate-net
+    logging:
+      driver: "none"
+
+  redis-commander:
+    container_name: apitemplate-redis-commander
+    hostname: redis-commander
+    image: rediscommander/redis-commander:latest
+    restart: always
+    environment:
+      - REDIS_HOSTS=local:redis:6379:0:${REDIS_PASSWORD}
+    ports:
+      - "8081:8081"
+    networks:
+      - apitemplate-net
+    logging:
+      driver: "none"
+
+volumes:
+  db_volume:
+  redis_data:
+  redis_conf:
