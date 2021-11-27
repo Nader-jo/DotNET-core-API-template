@@ -8,7 +8,7 @@ namespace ApiTemplate.Infrastructure.Repository
 {
     public class UserRepository : BaseRepository<User>, IUserRepository
     {
-        private readonly ApiTemplateDbContext _context;
+        protected readonly ApiTemplateDbContext _context;
 
         public UserRepository(ApiTemplateDbContext context) : base(context)
         {

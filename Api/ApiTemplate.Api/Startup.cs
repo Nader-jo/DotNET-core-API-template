@@ -2,6 +2,7 @@ using System;
 using System.Reflection;
 using System.Reflection.Metadata;
 using ApiTemplate.Application.Queries;
+using ApiTemplate.Common.Interfaces;
 using ApiTemplate.Contract;
 using ApiTemplate.Domain.Repository;
 using ApiTemplate.Infrastructure.Repository;
@@ -34,6 +35,7 @@ namespace ApiTemplate.Api
             services.AddDbContext<ApiTemplateDbContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddAutoMapper(typeof(MappingProfile));
             //services.AddScoped<IUserService, UserService>();
